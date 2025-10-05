@@ -1,0 +1,23 @@
+name = "staffing-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-05"
+node_compat = true
+
+[observability]
+enabled = true
+
+# Development (local)
+[env.development]
+# Use .dev.vars for secrets in development
+
+# Production
+[env.production]
+workers_dev = false
+# routes = ["api.votre-domaine.com/*"]
+
+# Database D1
+# Uncomment and configure after creating D1 database:
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "staffing-db"
+# database_id = "YOUR_DATABASE_ID_HERE"
