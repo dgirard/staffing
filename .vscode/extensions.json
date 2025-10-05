@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "cloudflare.vscode-wrangler",
+    "ms-playwright.playwright",
+    "zixuanchen.vitest-explorer",
+    "gruntfuggly.todo-tree",
+    "usernamehw.errorlens",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github"
+  ]
+}

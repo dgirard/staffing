@@ -277,7 +277,11 @@
     "chantiers_documentes": 12,
     "exemple_handoff_cree": true,
     "scripts_bootstrap_crees": true,
-    "github_actions_crees": false,
+    "github_actions_crees": true,
+    "github_templates_crees": true,
+    "vscode_config_complete": true,
+    "contributing_guide_cree": true,
+    "formatage_configs_crees": true,
     "ready_for_chantier_00": true
   }
 }

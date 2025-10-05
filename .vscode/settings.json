@@ -1,0 +1,75 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.wrangler": true,
+    "**/dist": true,
+    "**/coverage": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.wrangler": true,
+    "**/coverage": true,
+    "**/playwright-report": true
+  },
+  "eslint.workingDirectories": [
+    "./api",
+    "./frontend"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+  "files.associations": {
+    "*.md": "markdown",
+    ".dev.vars": "dotenv",
+    ".dev.vars.example": "dotenv"
+  },
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "CHANTIER",
+    "HANDOFF"
+  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "#fff",
+    "background": "#ffbd2e",
+    "opacity": 50
+  },
+  "todo-tree.highlights.customHighlight": {
+    "CHANTIER": {
+      "icon": "rocket",
+      "foreground": "#fff",
+      "background": "#0ea5e9"
+    },
+    "HANDOFF": {
+      "icon": "arrow-right",
+      "foreground": "#fff",
+      "background": "#10b981"
+    }
+  }
+}
