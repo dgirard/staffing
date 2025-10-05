@@ -1,0 +1,55 @@
+PROPRIETARY SOFTWARE LICENSE
+
+Copyright (c) 2024-2025 ESN Client - Tous droits réservés
+
+AVIS DE CONFIDENTIALITÉ
+
+Ce logiciel et sa documentation associée (le "Logiciel") sont la propriété exclusive
+de l'ESN cliente et sont protégés par les lois sur le droit d'auteur et les traités
+internationaux.
+
+RESTRICTIONS
+
+1. UTILISATION : Le Logiciel est fourni exclusivement pour un usage interne par
+   l'ESN cliente et ses employés autorisés.
+
+2. DISTRIBUTION : La distribution, la redistribution, la publication, ou le partage
+   du Logiciel ou de toute partie de celui-ci est strictement interdite sans
+   autorisation écrite préalable.
+
+3. MODIFICATION : Seuls les développeurs autorisés peuvent modifier le code source.
+   Toutes les modifications restent la propriété de l'ESN cliente.
+
+4. REVERSE ENGINEERING : La décompilation, le désassemblage ou toute tentative
+   de dérivation du code source à partir du code compilé est strictement interdite.
+
+5. DONNÉES CONFIDENTIELLES : Le Logiciel traite des données confidentielles,
+   notamment les coûts réels (CJR), les marges, et les informations personnelles.
+   La protection de ces données est obligatoire.
+
+LIMITATION DE RESPONSABILITÉ
+
+LE LOGICIEL EST FOURNI "TEL QUEL", SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU
+IMPLICITE. EN AUCUN CAS, LES AUTEURS OU LES DÉTENTEURS DE DROITS D'AUTEUR NE
+POURRONT ÊTRE TENUS RESPONSABLES DE TOUTE RÉCLAMATION, DOMMAGE OU AUTRE
+RESPONSABILITÉ.
+
+SÉCURITÉ
+
+1. Les secrets (JWT_SECRET, GEMINI_API_KEY) ne doivent JAMAIS être commités
+   dans le code source.
+
+2. L'accès aux données CJR est strictement réservé au rôle "directeur" avec
+   audit trail complet.
+
+3. Toute tentative d'accès non autorisé sera tracée et peut entraîner des
+   poursuites judiciaires.
+
+CONTACT
+
+Pour toute question concernant cette licence, veuillez contacter :
+[Contact ESN cliente à définir]
+
+---
+
+Dernière mise à jour : 2025-01-05

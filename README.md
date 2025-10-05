@@ -98,18 +98,23 @@ npm run dev
 - 🚀 **[QUICKSTART.md](docs/QUICKSTART.md)** - Setup développeur (60min)
 - 💻 **[DEV_LOCAL.md](docs/DEV_LOCAL.md)** - Guide dev local
 - 🧪 **[TESTING_STRATEGY.md](docs/TESTING_STRATEGY.md)** - Stratégie tests
+- 📊 **[STATUS.md](STATUS.md)** - État actuel du projet
 
-### Spécifications
+### Spécifications & Architecture
 
 - 📋 **[spec-staffing-esn-finale.md](docs/spec-staffing-esn-finale.md)** - Spec complète (1500 lignes)
+- 🏗️ **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Architecture technique détaillée
+- 🌐 **[API.md](docs/API.md)** - Documentation API REST complète
 - 🎨 **[TAILWIND_GUIDE.md](docs/TAILWIND_GUIDE.md)** - Design system
 - 📖 **[README.md](docs/README.md)** - Vue d'ensemble projet
 
-### Chantiers
+### Chantiers & Contribution
 
 - 🏗️ **[_GUIDE_CHANTIERS.md](chantiers/_GUIDE_CHANTIERS.md)** - Guide IA séquentiel
-- 📊 **[_ETAT_GLOBAL.json](chantiers/_ETAT_GLOBAL.json)** - État du projet
+- 📊 **[_ETAT_GLOBAL.json](chantiers/_ETAT_GLOBAL.json)** - État machine du projet
 - 📝 **[CHANTIER_XX_nom.md](chantiers/)** - 12 chantiers détaillés
+- 🤝 **[CONTRIBUTING.md](CONTRIBUTING.md)** - Guide de contribution
+- 📦 **[PROJET_COMPLET.md](PROJET_COMPLET.md)** - Résumé complet
 
 ---
 
