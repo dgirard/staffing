@@ -10,6 +10,7 @@ import dashboardsRoutes from './routes/dashboards.routes';
 import marginsRoutes from './routes/margins.routes';
 import auditRoutes from './routes/audit.routes';
 import chatRoutes from './routes/chat.routes';
+import mcpRoutes from './routes/mcp.routes';
 import { jwtMiddleware } from './middlewares/jwt.middleware';
 import type { HonoEnv } from './types/hono';
 
@@ -25,8 +26,8 @@ app.use('*', cors({
 app.get('/', (c) => {
   return c.json({
     status: 'ok',
-    message: 'Staffing ESN API - CHANTIER_09 Chat Gemini',
-    version: '0.9.0',
+    message: 'Staffing ESN API - CHANTIER_10 MCP Server',
+    version: '0.10.0',
     timestamp: new Date().toISOString(),
     environment: 'development'
   });
@@ -91,6 +92,10 @@ auditApp.route('/', auditRoutes);
 const chatApp = app.basePath('/chat');
 chatApp.use('*', jwtMiddleware);
 chatApp.route('/', chatRoutes);
+
+const mcpApp = app.basePath('/mcp');
+mcpApp.use('*', jwtMiddleware);
+mcpApp.route('/', mcpRoutes);
 
 // Protected route example
 app.get('/protected', jwtMiddleware, (c) => {
