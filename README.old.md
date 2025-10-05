@@ -102,12 +102,6 @@ npm run dev
 - ❓ **[FAQ.md](docs/FAQ.md)** - Questions fréquentes
 - 📚 **[GLOSSARY.md](docs/GLOSSARY.md)** - Termes et acronymes
 
-### Tests & Développement Local ⭐ NOUVEAU
-
-- 🔧 **[LOCAL_TESTING.md](./LOCAL_TESTING.md)** - Guide complet de test de l'API backend (cURL, endpoints, debugging)
-- 🎨 **[FRONTEND_TESTING.md](./FRONTEND_TESTING.md)** - Guide de test et développement du frontend React
-- 🚀 **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Guide de déploiement en production sur Cloudflare
-
 ### Spécifications & Architecture
 
 - 📋 **[spec-staffing-esn-finale.md](docs/spec-staffing-esn-finale.md)** - Spec complète (1500 lignes)
