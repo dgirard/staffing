@@ -2,14 +2,15 @@
   "metadata": {
     "projet": "Staffing ESN",
     "version": "2.0",
-    "derniere_mise_a_jour": "2025-01-05",
+    "derniere_mise_a_jour": "2025-10-05",
     "description": "État machine du projet - Suivi des chantiers et de l'infrastructure"
   },
   "chantier_actuel": {
     "numero": "00",
     "nom": "setup",
-    "statut": "not_started",
-    "description": "Setup infrastructure Cloudflare"
+    "statut": "ready_to_start",
+    "description": "Setup infrastructure Cloudflare",
+    "prereq_status": "complete"
   },
   "chantiers_completes": [],
   "chantiers_disponibles": [
@@ -134,12 +135,25 @@
   },
   "fichiers_cles": {
     "api": {
-      "existe": false,
-      "fichiers": []
+      "existe": true,
+      "fichiers": [
+        "api/package.json",
+        "api/tsconfig.json",
+        "api/vitest.config.ts",
+        "api/.dev.vars.example",
+        "api/wrangler.toml"
+      ]
     },
     "frontend": {
-      "existe": false,
-      "fichiers": []
+      "existe": true,
+      "fichiers": [
+        "frontend/package.json",
+        "frontend/vitest.config.ts",
+        "frontend/playwright.config.ts",
+        "frontend/tsconfig.json",
+        "frontend/vite.config.ts",
+        "frontend/tailwind.config.js"
+      ]
     },
     "docs": {
       "existe": true,
@@ -147,7 +161,46 @@
         "docs/spec-staffing-esn-finale.md",
         "docs/README.md",
         "docs/QUICKSTART.md",
-        "docs/TAILWIND_GUIDE.md"
+        "docs/TAILWIND_GUIDE.md",
+        "docs/TESTING_STRATEGY.md",
+        "docs/DEV_LOCAL.md"
+      ]
+    },
+    "chantiers": {
+      "existe": true,
+      "fichiers": [
+        "chantiers/_GUIDE_CHANTIERS.md",
+        "chantiers/_TEMPLATE_HANDOFF.md",
+        "chantiers/_ETAT_GLOBAL.json",
+        "chantiers/CHANTIER_00_setup.md",
+        "chantiers/CHANTIER_01_auth.md",
+        "chantiers/CHANTIER_02_database.md",
+        "chantiers/CHANTIER_03_crud_base.md",
+        "chantiers/CHANTIER_04_interventions.md",
+        "chantiers/CHANTIER_05_timesheet.md",
+        "chantiers/CHANTIER_06_validation.md",
+        "chantiers/CHANTIER_07_dashboards.md",
+        "chantiers/CHANTIER_08_directeur.md",
+        "chantiers/CHANTIER_09_chat.md",
+        "chantiers/CHANTIER_10_mcp.md",
+        "chantiers/CHANTIER_11_deploy.md",
+        "chantiers/handoffs/HANDOFF_00_EXAMPLE.md"
+      ]
+    },
+    "scripts": {
+      "existe": true,
+      "fichiers": [
+        "scripts/bootstrap.sh",
+        "scripts/dev-local.sh",
+        "scripts/dev-local-seed.sh"
+      ]
+    },
+    "racine": {
+      "existe": true,
+      "fichiers": [
+        "README.md",
+        "package.json",
+        "PROJET_COMPLET.md"
       ]
     }
   },
@@ -171,12 +224,31 @@
   },
   "dependencies": {
     "api": {
-      "node_version": null,
-      "npm_packages": []
+      "node_version": ">=18.0.0",
+      "npm_packages": [
+        "hono",
+        "zod",
+        "jsonwebtoken",
+        "bcryptjs",
+        "vitest",
+        "@cloudflare/workers-types",
+        "wrangler"
+      ]
     },
     "frontend": {
-      "node_version": null,
-      "npm_packages": []
+      "node_version": ">=18.0.0",
+      "npm_packages": [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "@tanstack/react-query",
+        "zustand",
+        "date-fns",
+        "vite",
+        "vitest",
+        "@playwright/test",
+        "tailwindcss"
+      ]
     }
   },
   "handoffs": {
@@ -194,6 +266,18 @@
   "notes": [
     "Le projet démarre au chantier 00 (setup infrastructure)",
     "Consulter docs/spec-staffing-esn-finale.md pour la spécification complète",
-    "Consulter chantiers/_GUIDE_CHANTIERS.md pour démarrer"
-  ]
+    "Consulter chantiers/_GUIDE_CHANTIERS.md pour démarrer",
+    "Phase de préparation (configs + docs) terminée",
+    "31+ fichiers de documentation et configuration créés",
+    "Prêt pour l'exécution du CHANTIER_00"
+  ],
+  "preparation_status": {
+    "documentation_complete": true,
+    "configs_complete": true,
+    "chantiers_documentes": 12,
+    "exemple_handoff_cree": true,
+    "scripts_bootstrap_crees": true,
+    "github_actions_crees": false,
+    "ready_for_chantier_00": true
+  }
 }
