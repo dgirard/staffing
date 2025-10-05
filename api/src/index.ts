@@ -3,6 +3,7 @@ import { cors } from 'hono/cors';
 import authRoutes from './routes/auth.routes';
 import consultantsRoutes from './routes/consultants.routes';
 import projectsRoutes from './routes/projects.routes';
+import interventionsRoutes from './routes/interventions.routes';
 import { jwtMiddleware } from './middlewares/jwt.middleware';
 import type { HonoEnv } from './types/hono';
 
@@ -18,8 +19,8 @@ app.use('*', cors({
 app.get('/', (c) => {
   return c.json({
     status: 'ok',
-    message: 'Staffing ESN API - CHANTIER_03 CRUD',
-    version: '0.3.0',
+    message: 'Staffing ESN API - CHANTIER_04 Interventions',
+    version: '0.4.0',
     timestamp: new Date().toISOString(),
     environment: 'development'
   });
@@ -56,6 +57,10 @@ consultantsApp.route('/', consultantsRoutes);
 const projectsApp = app.basePath('/projects');
 projectsApp.use('*', jwtMiddleware);
 projectsApp.route('/', projectsRoutes);
+
+const interventionsApp = app.basePath('/interventions');
+interventionsApp.use('*', jwtMiddleware);
+interventionsApp.route('/', interventionsRoutes);
 
 // Protected route example
 app.get('/protected', jwtMiddleware, (c) => {
