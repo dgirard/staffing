@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import authRoutes from './routes/auth.routes';
+import consultantsRoutes from './routes/consultants.routes';
+import projectsRoutes from './routes/projects.routes';
 import { jwtMiddleware } from './middlewares/jwt.middleware';
 import type { HonoEnv } from './types/hono';
 
@@ -16,8 +18,8 @@ app.use('*', cors({
 app.get('/', (c) => {
   return c.json({
     status: 'ok',
-    message: 'Staffing ESN API - CHANTIER_01 Auth',
-    version: '0.2.0',
+    message: 'Staffing ESN API - CHANTIER_03 CRUD',
+    version: '0.3.0',
     timestamp: new Date().toISOString(),
     environment: 'development'
   });
@@ -44,6 +46,16 @@ app.get('/test/bindings', (c) => {
 
 // Auth routes (public)
 app.route('/auth', authRoutes);
+
+// Protected API routes (require JWT)
+// Note: jwtMiddleware applied separately since route() doesn't accept middleware parameter
+const consultantsApp = app.basePath('/consultants');
+consultantsApp.use('*', jwtMiddleware);
+consultantsApp.route('/', consultantsRoutes);
+
+const projectsApp = app.basePath('/projects');
+projectsApp.use('*', jwtMiddleware);
+projectsApp.route('/', projectsRoutes);
 
 // Protected route example
 app.get('/protected', jwtMiddleware, (c) => {
