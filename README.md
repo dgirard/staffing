@@ -99,6 +99,8 @@ npm run dev
 - 💻 **[DEV_LOCAL.md](docs/DEV_LOCAL.md)** - Guide dev local
 - 🧪 **[TESTING_STRATEGY.md](docs/TESTING_STRATEGY.md)** - Stratégie tests
 - 📊 **[STATUS.md](STATUS.md)** - État actuel du projet
+- ❓ **[FAQ.md](docs/FAQ.md)** - Questions fréquentes
+- 📚 **[GLOSSARY.md](docs/GLOSSARY.md)** - Termes et acronymes
 
 ### Spécifications & Architecture
 
