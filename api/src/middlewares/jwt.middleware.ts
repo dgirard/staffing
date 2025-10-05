@@ -27,7 +27,7 @@ export async function jwtMiddleware(c: Context<HonoEnv>, next: Next): Promise<Re
 
   try {
     // Verify token
-    const payload = authService.verifyToken(token, c.env.JWT_SECRET);
+    const payload = await authService.verifyToken(token, c.env.JWT_SECRET);
 
     // Attach payload to context
     c.set('jwtPayload', payload);

@@ -26,8 +26,8 @@ app.use('*', cors({
 app.get('/', (c) => {
   return c.json({
     status: 'ok',
-    message: 'Staffing ESN API - CHANTIER_10 MCP Server',
-    version: '0.10.0',
+    message: 'Staffing ESN API - Production Ready',
+    version: '0.11.1',
     timestamp: new Date().toISOString(),
     environment: 'development'
   });

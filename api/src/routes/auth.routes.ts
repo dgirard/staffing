@@ -5,6 +5,7 @@ import { LoginSchema, RegisterSchema } from '../schemas/auth.schema';
 import type { AuthResponse } from '../types';
 import type { HonoEnv } from '../types/hono';
 import { createUser, getUserByEmail, getUserById } from '../db/queries';
+import { jwtMiddleware } from '../middlewares/jwt.middleware';
 
 const auth = new Hono<HonoEnv>();
 const authService = new AuthService();
@@ -45,7 +46,7 @@ auth.post('/register', zValidator('json', RegisterSchema), async (c) => {
   });
 
   // Generate token
-  const token = authService.generateToken(userId, role, c.env.JWT_SECRET);
+  const token = await authService.generateToken(userId, role, c.env.JWT_SECRET);
 
   // Response
   const response: AuthResponse = {
@@ -105,7 +106,7 @@ auth.post('/login', zValidator('json', LoginSchema), async (c) => {
   }
 
   // Generate token
-  const token = authService.generateToken(user.id, user.role, c.env.JWT_SECRET);
+  const token = await authService.generateToken(user.id, user.role, c.env.JWT_SECRET);
 
   // Response
   const response: AuthResponse = {
@@ -131,7 +132,7 @@ auth.post('/login', zValidator('json', LoginSchema), async (c) => {
  * Récupérer les informations de l'utilisateur connecté
  * (Protected route - exemple d'utilisation du middleware JWT)
  */
-auth.get('/me', async (c) => {
+auth.get('/me', jwtMiddleware, async (c) => {
   const payload = c.get('jwtPayload');
 
   if (!payload) {
