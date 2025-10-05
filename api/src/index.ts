@@ -6,6 +6,7 @@ import projectsRoutes from './routes/projects.routes';
 import interventionsRoutes from './routes/interventions.routes';
 import timesheetsRoutes from './routes/timesheets.routes';
 import validationsRoutes from './routes/validations.routes';
+import dashboardsRoutes from './routes/dashboards.routes';
 import { jwtMiddleware } from './middlewares/jwt.middleware';
 import type { HonoEnv } from './types/hono';
 
@@ -21,8 +22,8 @@ app.use('*', cors({
 app.get('/', (c) => {
   return c.json({
     status: 'ok',
-    message: 'Staffing ESN API - CHANTIER_06 Validations',
-    version: '0.6.0',
+    message: 'Staffing ESN API - CHANTIER_07 Dashboards',
+    version: '0.7.0',
     timestamp: new Date().toISOString(),
     environment: 'development'
   });
@@ -71,6 +72,10 @@ timesheetsApp.route('/', timesheetsRoutes);
 const validationsApp = app.basePath('/validations');
 validationsApp.use('*', jwtMiddleware);
 validationsApp.route('/', validationsRoutes);
+
+const dashboardsApp = app.basePath('/dashboards');
+dashboardsApp.use('*', jwtMiddleware);
+dashboardsApp.route('/', dashboardsRoutes);
 
 // Protected route example
 app.get('/protected', jwtMiddleware, (c) => {
