@@ -4,13 +4,10 @@ import { AuthService } from '../services/auth.service';
 import { LoginSchema, RegisterSchema } from '../schemas/auth.schema';
 import type { AuthResponse } from '../types';
 import type { HonoEnv } from '../types/hono';
+import { createUser, getUserByEmail, getUserById } from '../db/queries';
 
 const auth = new Hono<HonoEnv>();
 const authService = new AuthService();
-
-// Mock users storage (will be replaced by D1 in CHANTIER_02)
-// Key: email, Value: user object
-const mockUsers = new Map<string, any>();
 
 /**
  * POST /auth/register
@@ -20,7 +17,8 @@ auth.post('/register', zValidator('json', RegisterSchema), async (c) => {
   const { email, password, nom, prenom, role } = c.req.valid('json');
 
   // Check if user already exists
-  if (mockUsers.has(email)) {
+  const existingUser = await getUserByEmail(c.env.DB, email);
+  if (existingUser) {
     return c.json(
       {
         success: false,
@@ -36,18 +34,15 @@ auth.post('/register', zValidator('json', RegisterSchema), async (c) => {
 
   // Create user
   const userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-  const user = {
+
+  await createUser(c.env.DB, {
     id: userId,
     email,
     password_hash,
     nom,
     prenom,
     role,
-    created_at: new Date().toISOString(),
-  };
-
-  // Store user (mock)
-  mockUsers.set(email, user);
+  });
 
   // Generate token
   const token = authService.generateToken(userId, role, c.env.JWT_SECRET);
@@ -56,11 +51,11 @@ auth.post('/register', zValidator('json', RegisterSchema), async (c) => {
   const response: AuthResponse = {
     token,
     user: {
-      id: user.id,
-      email: user.email,
-      nom: user.nom,
-      prenom: user.prenom,
-      role: user.role,
+      id: userId,
+      email,
+      nom,
+      prenom,
+      role,
     },
   };
 
@@ -82,7 +77,7 @@ auth.post('/login', zValidator('json', LoginSchema), async (c) => {
   const { email, password } = c.req.valid('json');
 
   // Find user
-  const user = mockUsers.get(email);
+  const user = await getUserByEmail(c.env.DB, email);
 
   if (!user) {
     return c.json(
@@ -151,13 +146,7 @@ auth.get('/me', async (c) => {
   }
 
   // Find user by ID
-  let user = null;
-  for (const u of mockUsers.values()) {
-    if (u.id === payload.userId) {
-      user = u;
-      break;
-    }
-  }
+  const user = await getUserById(c.env.DB, payload.userId);
 
   if (!user) {
     return c.json(

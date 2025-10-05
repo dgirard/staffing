@@ -2,6 +2,7 @@ name = "staffing-api"
 main = "src/index.ts"
 compatibility_date = "2025-01-05"
 node_compat = true
+account_id = "7abb63759fda749d9c275e8f4bcdd57f"
 
 [observability]
 enabled = true
@@ -16,8 +17,7 @@ workers_dev = false
 # routes = ["api.votre-domaine.com/*"]
 
 # Database D1
-# Uncomment and configure after creating D1 database:
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "staffing-db"
-# database_id = "YOUR_DATABASE_ID_HERE"
+[[d1_databases]]
+binding = "DB"
+database_name = "staffing-db"
+database_id = "d05d8775-7871-4f91-8d26-b3a6641441dd"
