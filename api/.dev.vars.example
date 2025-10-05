@@ -1,0 +1,14 @@
+# Cloudflare Workers Local Development Variables
+# Copy this file to .dev.vars and fill in your actual values
+
+# JWT Secret (32+ characters random string)
+# Generate with: openssl rand -hex 32
+JWT_SECRET=your-jwt-secret-32-chars-minimum-change-me
+
+# Google Gemini API Key
+# Get from: https://makersuite.google.com/app/apikey
+GEMINI_API_KEY=your-gemini-api-key-here
+
+# Environment
+NODE_ENV=development
+LOG_LEVEL=debug

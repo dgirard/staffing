@@ -1,0 +1,40 @@
+{
+  "name": "staffing-esn",
+  "version": "2.0.0",
+  "description": "Application de staffing ESN avec chat IA et architecture serverless",
+  "private": true,
+  "scripts": {
+    "bootstrap": "./scripts/bootstrap.sh",
+    "dev": "./scripts/dev-local.sh",
+    "dev:seed": "./scripts/dev-local-seed.sh",
+    "dev:api": "cd api && npx wrangler dev --local --port 8787",
+    "dev:frontend": "cd frontend && npm run dev",
+    "test": "npm run test:api && npm run test:frontend",
+    "test:all": "npm run test && npm run test:e2e",
+    "test:api": "cd api && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "test:e2e": "cd frontend && npm run test:e2e",
+    "test:watch": "cd api && npm run test:watch",
+    "test:coverage": "npm run test:api -- --coverage && npm run test:frontend -- --coverage",
+    "build": "npm run build:api && npm run build:frontend",
+    "build:api": "cd api && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy": "npm run deploy:api && npm run deploy:frontend",
+    "deploy:api": "cd api && npx wrangler deploy",
+    "deploy:frontend": "cd frontend && npm run build && npx wrangler pages deploy dist",
+    "lint": "cd api && npm run lint && cd ../frontend && npm run lint",
+    "clean": "rm -rf api/node_modules frontend/node_modules api/.wrangler frontend/dist",
+    "clean:install": "npm run clean && npm run bootstrap"
+  },
+  "keywords": [
+    "staffing",
+    "esn",
+    "cloudflare",
+    "workers",
+    "react",
+    "ai",
+    "gemini"
+  ],
+  "author": "Staffing ESN Team",
+  "license": "PROPRIETARY"
+}

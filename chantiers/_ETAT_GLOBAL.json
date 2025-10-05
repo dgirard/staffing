@@ -1,0 +1,199 @@
+{
+  "metadata": {
+    "projet": "Staffing ESN",
+    "version": "2.0",
+    "derniere_mise_a_jour": "2025-01-05",
+    "description": "État machine du projet - Suivi des chantiers et de l'infrastructure"
+  },
+  "chantier_actuel": {
+    "numero": "00",
+    "nom": "setup",
+    "statut": "not_started",
+    "description": "Setup infrastructure Cloudflare"
+  },
+  "chantiers_completes": [],
+  "chantiers_disponibles": [
+    {
+      "numero": "00",
+      "nom": "setup",
+      "description": "Infrastructure Cloudflare (Workers, D1, Pages, Secrets)",
+      "duree_estimee": "2j",
+      "statut": "available"
+    },
+    {
+      "numero": "01",
+      "nom": "auth",
+      "description": "Authentification JWT + RBAC middleware",
+      "duree_estimee": "2j",
+      "statut": "blocked",
+      "bloque_par": ["00"]
+    },
+    {
+      "numero": "02",
+      "nom": "database",
+      "description": "Schéma D1 (8 tables + vues + seed data)",
+      "duree_estimee": "2j",
+      "statut": "blocked",
+      "bloque_par": ["01"]
+    },
+    {
+      "numero": "03",
+      "nom": "crud_base",
+      "description": "CRUD Consultants + Projets avec RBAC",
+      "duree_estimee": "3j",
+      "statut": "blocked",
+      "bloque_par": ["02"]
+    },
+    {
+      "numero": "04",
+      "nom": "interventions",
+      "description": "Allocations consultants (interventions)",
+      "duree_estimee": "2j",
+      "statut": "blocked",
+      "bloque_par": ["03"]
+    },
+    {
+      "numero": "05",
+      "nom": "timesheet",
+      "description": "Saisie temps demi-journée (web + PWA mobile)",
+      "duree_estimee": "4j",
+      "statut": "blocked",
+      "bloque_par": ["04"]
+    },
+    {
+      "numero": "06",
+      "nom": "validation",
+      "description": "Workflow validation timesheets",
+      "duree_estimee": "3j",
+      "statut": "blocked",
+      "bloque_par": ["05"]
+    },
+    {
+      "numero": "07",
+      "nom": "dashboards",
+      "description": "Dashboards (Consultant, Owner, Admin)",
+      "duree_estimee": "4j",
+      "statut": "blocked",
+      "bloque_par": ["06"]
+    },
+    {
+      "numero": "08",
+      "nom": "directeur",
+      "description": "Dashboard Directeur (CJR/CJN)",
+      "duree_estimee": "3j",
+      "statut": "blocked",
+      "bloque_par": ["07"]
+    },
+    {
+      "numero": "09",
+      "nom": "chat",
+      "description": "Chat Gemini API + NLU intentions",
+      "duree_estimee": "4j",
+      "statut": "blocked",
+      "bloque_par": ["06"]
+    },
+    {
+      "numero": "10",
+      "nom": "mcp",
+      "description": "MCP Server (5 tools core)",
+      "duree_estimee": "3j",
+      "statut": "blocked",
+      "bloque_par": ["09"]
+    },
+    {
+      "numero": "11",
+      "nom": "deploy",
+      "description": "Tests E2E + déploiement production",
+      "duree_estimee": "3j",
+      "statut": "blocked",
+      "bloque_par": ["08", "10"]
+    }
+  ],
+  "infrastructure": {
+    "cloudflare": {
+      "workers": {
+        "deploye": false,
+        "url": null,
+        "derniere_version": null
+      },
+      "d1_database": {
+        "cree": false,
+        "database_id": null,
+        "database_name": "staffing-db",
+        "tables_creees": []
+      },
+      "pages": {
+        "deploye": false,
+        "url": null,
+        "projet_id": null
+      },
+      "secrets_configures": [],
+      "kv_namespaces": [],
+      "r2_buckets": []
+    }
+  },
+  "fichiers_cles": {
+    "api": {
+      "existe": false,
+      "fichiers": []
+    },
+    "frontend": {
+      "existe": false,
+      "fichiers": []
+    },
+    "docs": {
+      "existe": true,
+      "fichiers": [
+        "docs/spec-staffing-esn-finale.md",
+        "docs/README.md",
+        "docs/QUICKSTART.md",
+        "docs/TAILWIND_GUIDE.md"
+      ]
+    }
+  },
+  "tests": {
+    "unit": {
+      "total": 0,
+      "passing": 0,
+      "failing": 0,
+      "coverage": 0
+    },
+    "integration": {
+      "total": 0,
+      "passing": 0,
+      "failing": 0
+    },
+    "e2e": {
+      "total": 0,
+      "passing": 0,
+      "failing": 0
+    }
+  },
+  "dependencies": {
+    "api": {
+      "node_version": null,
+      "npm_packages": []
+    },
+    "frontend": {
+      "node_version": null,
+      "npm_packages": []
+    }
+  },
+  "handoffs": {
+    "dernier_handoff": null,
+    "historique": []
+  },
+  "metriques": {
+    "total_jours_consommes": 0,
+    "budget_jours_restants": 60,
+    "pourcentage_completion": 0,
+    "chantiers_termines": 0,
+    "chantiers_totaux": 12
+  },
+  "problemes_connus": [],
+  "notes": [
+    "Le projet démarre au chantier 00 (setup infrastructure)",
+    "Consulter docs/spec-staffing-esn-finale.md pour la spécification complète",
+    "Consulter chantiers/_GUIDE_CHANTIERS.md pour démarrer"
+  ]
+}
