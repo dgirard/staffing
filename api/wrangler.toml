@@ -13,10 +13,16 @@ enabled = true
 
 # Production
 [env.production]
+name = "staffing-esn-api-prod"
 workers_dev = false
 # routes = ["api.votre-domaine.com/*"]
 
-# Database D1
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "staffing-esn-db-prod"
+database_id = ""  # À remplir après création: npx wrangler d1 create staffing-esn-db-prod
+
+# Database D1 (Development/Local)
 [[d1_databases]]
 binding = "DB"
 database_name = "staffing-db"
